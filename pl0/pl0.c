@@ -170,7 +170,33 @@ void getsym(void)
 		{
 			sym = ssym[4];
 		}
-	}		
+	}
+	else if(ch == '&')
+	{
+		getch();
+		if(ch == '&')
+		{
+			sym = SYM_AND;
+			getch();
+		}
+		else 
+		{
+			sym = SYM_NULL;
+		}
+	}
+	else if(ch == '|')
+	{
+		getch();
+		if(ch == '|')
+		{
+			sym = SYM_OR;
+			getch();
+		}
+		else 
+		{
+			sym = SYM_NULL;
+		}
+	}								
 	else
 	{ // other tokens
 		i = NSYM;  
@@ -180,6 +206,16 @@ void getsym(void)
 		{
 			sym = ssym[i];
 			getch();
+			if( sym==SYM_PLUS   &&  ch=='+')
+			{
+				sym=SYM_DPLUS;
+				getch();
+			}
+			else if(sym == SYM_MINUS && ch == '-')
+			{
+				sym=SYM_DMINUS;
+				getch();
+			}
 		}
 		else  //不是其中一个，无法识别的符号
 		{
