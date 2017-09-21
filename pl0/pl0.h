@@ -14,6 +14,8 @@
 
 #define STACKSIZE  1000   // maximum storage
 
+/*枚举变量和整型数组里面增加了项，相应的宏定义也做了修改*/
+
 enum symtype
 {
 	SYM_NULL,
@@ -59,6 +61,7 @@ enum symtype
 	SYM_DPLUS,
 	SYM_DMINUS
 };
+/*9.19增加了SYM_RETURN之后的几项*/
 
 enum idtype
 {
@@ -153,6 +156,7 @@ int wsym[NRW + 1] =
 	SYM_NULL, SYM_BEGIN, SYM_CALL, SYM_CONST, SYM_DO, SYM_END,
 	SYM_IF, SYM_ODD, SYM_PROCEDURE, SYM_THEN, SYM_VAR, SYM_WHILE,SYM_ELSE,SYM_ELIF,SYM_EXIT,SYM_RETURN,SYM_FOR
 };
+/*9.19增加SYM_RETURN 到 SYM_FOR两项*/
 
 int ssym[NSYM + 1] =
 {
@@ -164,6 +168,7 @@ char csym[NSYM + 1] =
 {
 	' ', '+', '-', '*', '/', '(', ')', '=', ',', '.', ';','!','[',']'
 };
+/*9.19增加了 感叹号和两个中括号*/
 
 #define MAXINS   8
 char* mnemonic[MAXINS] =
